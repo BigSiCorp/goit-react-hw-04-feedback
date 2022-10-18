@@ -6,12 +6,8 @@ import { Section } from './Section/SectionTitle';
 import { Notification } from './Notification/Notification';
 
 export const Feedback = ({
-  good,
-  neutral,
-  bad,
-  countGoodFeedback,
-  countNeutralFeedback,
-  countBadFeedback,
+  options,
+  countFeedback,
   total,
   countPositiveFeedbackPercentage,
 }) => {
@@ -19,21 +15,15 @@ export const Feedback = ({
     <>
       <Section title="Please leave feedback">
         <FeedbackOption
-          onLeaveGoodFeedback={countGoodFeedback}
-          onLeaveNeutralFeedback={countNeutralFeedback}
-          onLeaveBadFeedback={countBadFeedback}
-          good={good}
-          neutral={neutral}
-          bad={bad}
+          onLeaveFeedback={countFeedback}
+          options={options}
         />
       </Section>
       <Section title="Statistics">
         {total ? (
           <Statistics
             total={total}
-            good={good}
-            neutral={neutral}
-            bad={bad}
+            options={ options }
             positivePercentage={countPositiveFeedbackPercentage}
           />
         ) : (
